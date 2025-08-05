@@ -1,1 +1,1 @@
-# Social-Media-Dashboard
+# sociamedia-dashboard-app
