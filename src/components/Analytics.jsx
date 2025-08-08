@@ -14,6 +14,7 @@ import {
 } from 'chart.js'
 import { Line, Bar, Doughnut } from 'react-chartjs-2'
 import { Calendar, TrendingUp, Users, Eye, Heart } from 'lucide-react'
+import { useTheme } from '../contexts/ThemeContext'
 
 ChartJS.register(
   CategoryScale,
@@ -29,6 +30,7 @@ ChartJS.register(
 
 const Analytics = () => {
   const [timeRange, setTimeRange] = useState('7d')
+  const { isDark } = useTheme()
 
   const engagementData = {
     labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
@@ -95,25 +97,25 @@ const Analytics = () => {
     plugins: {
       legend: {
         labels: {
-          color: 'rgba(255, 255, 255, 0.8)',
+          color: isDark ? 'rgba(255, 255, 255, 0.8)' : 'rgba(0, 0, 0, 0.8)',
         },
       },
     },
     scales: {
       x: {
         ticks: {
-          color: 'rgba(255, 255, 255, 0.6)',
+          color: isDark ? 'rgba(255, 255, 255, 0.6)' : 'rgba(0, 0, 0, 0.6)',
         },
         grid: {
-          color: 'rgba(255, 255, 255, 0.1)',
+          color: isDark ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)',
         },
       },
       y: {
         ticks: {
-          color: 'rgba(255, 255, 255, 0.6)',
+          color: isDark ? 'rgba(255, 255, 255, 0.6)' : 'rgba(0, 0, 0, 0.6)',
         },
         grid: {
-          color: 'rgba(255, 255, 255, 0.1)',
+          color: isDark ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)',
         },
       },
     },
@@ -125,7 +127,7 @@ const Analytics = () => {
       legend: {
         position: 'bottom',
         labels: {
-          color: 'rgba(255, 255, 255, 0.8)',
+          color: isDark ? 'rgba(255, 255, 255, 0.8)' : 'rgba(0, 0, 0, 0.8)',
           padding: 20,
         },
       },
@@ -171,25 +173,25 @@ const Analytics = () => {
         className="flex items-center justify-between"
       >
         <div>
-          <h1 className="text-3xl font-bold text-white mb-2">Analytics Dashboard</h1>
-          <p className="text-white/70">Track your social media performance and insights</p>
+          <h1 className="text-3xl font-bold text-white dark:text-white light:text-gray-800 mb-2">Analytics Dashboard</h1>
+          <p className="text-white/70 dark:text-white/70 light:text-gray-600">Track your social media performance and insights</p>
         </div>
         
         <div className="flex items-center gap-3">
           <select
             value={timeRange}
             onChange={(e) => setTimeRange(e.target.value)}
-            className="glass rounded-xl px-4 py-2 text-white bg-transparent border-0 focus:outline-none focus:ring-2 focus:ring-white/20"
+            className="glass rounded-xl px-4 py-2 text-white dark:text-white light:text-gray-800 bg-transparent border-0 focus:outline-none focus:ring-2 focus:ring-white/20"
           >
-            <option value="7d" className="bg-gray-800">Last 7 days</option>
-            <option value="30d" className="bg-gray-800">Last 30 days</option>
-            <option value="90d" className="bg-gray-800">Last 90 days</option>
+            <option value="7d" className="bg-gray-800 dark:bg-gray-800 light:bg-white light:text-gray-800">Last 7 days</option>
+            <option value="30d" className="bg-gray-800 dark:bg-gray-800 light:bg-white light:text-gray-800">Last 30 days</option>
+            <option value="90d" className="bg-gray-800 dark:bg-gray-800 light:bg-white light:text-gray-800">Last 90 days</option>
           </select>
           
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="flex items-center gap-2 px-4 py-2 glass rounded-xl text-white hover:bg-white/20 transition-all duration-300"
+            className="flex items-center gap-2 px-4 py-2 glass rounded-xl text-white dark:text-white light:text-gray-800 hover:bg-white/20 dark:hover:bg-white/20 light:hover:bg-gray-200/50 transition-all duration-300"
           >
             <Calendar size={18} />
             Export Report
@@ -215,8 +217,8 @@ const Analytics = () => {
                 </div>
                 <span className="text-green-400 text-sm font-medium">{metric.change}</span>
               </div>
-              <h3 className="text-2xl font-bold text-white mb-1">{metric.value}</h3>
-              <p className="text-white/60 text-sm">{metric.title}</p>
+              <h3 className="text-2xl font-bold text-white dark:text-white light:text-gray-800 mb-1">{metric.value}</h3>
+              <p className="text-white/60 dark:text-white/60 light:text-gray-600 text-sm">{metric.title}</p>
             </motion.div>
           )
         })}
@@ -229,7 +231,7 @@ const Analytics = () => {
           transition={{ delay: 0.4 }}
           className="glass rounded-2xl p-6"
         >
-          <h2 className="text-xl font-bold text-white mb-6">Engagement Over Time</h2>
+          <h2 className="text-xl font-bold text-white dark:text-white light:text-gray-800 mb-6">Engagement Over Time</h2>
           <Line data={engagementData} options={chartOptions} />
         </motion.div>
 
@@ -239,7 +241,7 @@ const Analytics = () => {
           transition={{ delay: 0.5 }}
           className="glass rounded-2xl p-6"
         >
-          <h2 className="text-xl font-bold text-white mb-6">Platform Distribution</h2>
+          <h2 className="text-xl font-bold text-white dark:text-white light:text-gray-800 mb-6">Platform Distribution</h2>
           <div className="h-64 flex items-center justify-center">
             <Doughnut data={platformData} options={doughnutOptions} />
           </div>
@@ -252,7 +254,7 @@ const Analytics = () => {
         transition={{ delay: 0.6 }}
         className="glass rounded-2xl p-6"
       >
-        <h2 className="text-xl font-bold text-white mb-6">Post Performance</h2>
+        <h2 className="text-xl font-bold text-white dark:text-white light:text-gray-800 mb-6">Post Performance</h2>
         <Bar data={postPerformanceData} options={chartOptions} />
       </motion.div>
     </div>

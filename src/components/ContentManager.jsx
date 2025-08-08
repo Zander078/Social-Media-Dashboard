@@ -100,7 +100,7 @@ const ContentManager = () => {
       twitter: 'text-twitter',
       facebook: 'text-facebook',
       linkedin: 'text-linkedin',
-      tiktok: 'text-black',
+      tiktok: 'text-black dark:text-white',
       youtube: 'text-youtube'
     }
     return colors[platform] || 'text-gray-400'
@@ -120,8 +120,8 @@ const ContentManager = () => {
         className="flex items-center justify-between"
       >
         <div>
-          <h1 className="text-3xl font-bold text-white mb-2">Content Manager</h1>
-          <p className="text-white/70">Manage your posts, schedules, and drafts</p>
+          <h1 className="text-3xl font-bold text-white dark:text-white light:text-gray-800 mb-2">Content Manager</h1>
+          <p className="text-white/70 dark:text-white/70 light:text-gray-600">Manage your posts, schedules, and drafts</p>
         </div>
         
         <motion.button
@@ -137,7 +137,7 @@ const ContentManager = () => {
       <div className="flex flex-col lg:flex-row gap-6">
         <div className="lg:w-1/4">
           <div className="glass rounded-2xl p-6 space-y-4">
-            <h2 className="text-lg font-bold text-white">Content Types</h2>
+            <h2 className="text-lg font-bold text-white dark:text-white light:text-gray-800">Content Types</h2>
             
             <div className="space-y-2">
               {tabs.map((tab) => (
@@ -146,22 +146,22 @@ const ContentManager = () => {
                   onClick={() => setActiveTab(tab.id)}
                   className={`w-full flex items-center justify-between px-4 py-3 rounded-xl transition-all duration-300 ${
                     activeTab === tab.id
-                      ? 'bg-white/20 text-white shadow-lg'
-                      : 'text-white/70 hover:bg-white/10 hover:text-white'
+                      ? 'bg-white/20 dark:bg-white/20 light:bg-gray-200/80 text-white dark:text-white light:text-gray-800 shadow-lg'
+                      : 'text-white/70 dark:text-white/70 light:text-gray-600 hover:bg-white/10 dark:hover:bg-white/10 light:hover:bg-gray-200/50 hover:text-white dark:hover:text-white light:hover:text-gray-800'
                   }`}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
                   <span className="font-medium capitalize">{tab.label}</span>
-                  <span className="text-xs bg-white/20 px-2 py-1 rounded-full">{tab.count}</span>
+                  <span className="text-xs bg-white/20 dark:bg-white/20 light:bg-gray-300/50 px-2 py-1 rounded-full">{tab.count}</span>
                 </motion.button>
               ))}
             </div>
 
-            <div className="pt-4 border-t border-white/10">
+            <div className="pt-4 border-t border-white/10 dark:border-white/10 light:border-gray-300/30">
               <motion.button
                 whileHover={{ scale: 1.02 }}
-                className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-white/70 hover:bg-white/10 hover:text-white transition-all duration-300"
+                className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-white/70 dark:text-white/70 light:text-gray-600 hover:bg-white/10 dark:hover:bg-white/10 light:hover:bg-gray-200/50 hover:text-white dark:hover:text-white light:hover:text-gray-800 transition-all duration-300"
               >
                 <Calendar size={18} />
                 <span className="font-medium">Schedule Calendar</span>
@@ -174,20 +174,20 @@ const ContentManager = () => {
           <div className="glass rounded-2xl p-6">
             <div className="flex flex-col sm:flex-row gap-4 mb-6">
               <div className="relative flex-1">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-white/40" size={20} />
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-white/40 dark:text-white/40 light:text-gray-400" size={20} />
                 <input
                   type="text"
                   placeholder="Search content..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full pl-10 pr-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-white/20"
+                  className="w-full pl-10 pr-4 py-3 bg-white/10 dark:bg-white/10 light:bg-gray-100/50 border border-white/20 dark:border-white/20 light:border-gray-300/30 rounded-xl text-white dark:text-white light:text-gray-800 placeholder-white/40 dark:placeholder-white/40 light:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-white/20"
                 />
               </div>
               
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="flex items-center gap-2 px-4 py-3 glass rounded-xl text-white hover:bg-white/20 transition-all duration-300"
+                className="flex items-center gap-2 px-4 py-3 glass rounded-xl text-white dark:text-white light:text-gray-800 hover:bg-white/20 dark:hover:bg-white/20 light:hover:bg-gray-200/50 transition-all duration-300"
               >
                 <Filter size={18} />
                 Filter
@@ -221,7 +221,7 @@ const ContentManager = () => {
                       <div className="p-4">
                         <div className="flex items-center justify-between mb-3">
                           <div className="flex items-center gap-2">
-                            <TypeIcon size={16} className="text-white/60" />
+                            <TypeIcon size={16} className="text-white/60 dark:text-white/60 light:text-gray-500" />
                             <span className={`text-sm font-medium capitalize ${getPlatformColor(item.platform)}`}>
                               {item.platform}
                             </span>
@@ -230,13 +230,13 @@ const ContentManager = () => {
                           <motion.button
                             whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.9 }}
-                            className="text-white/60 hover:text-white transition-colors duration-300"
+                            className="text-white/60 dark:text-white/60 light:text-gray-500 hover:text-white dark:hover:text-white light:hover:text-gray-800 transition-colors duration-300"
                           >
                             <MoreHorizontal size={16} />
                           </motion.button>
                         </div>
 
-                        <h3 className="text-white font-medium text-sm mb-2 line-clamp-2">{item.title}</h3>
+                        <h3 className="text-white dark:text-white light:text-gray-800 font-medium text-sm mb-2 line-clamp-2">{item.title}</h3>
                         
                         <div className="flex items-center justify-between mb-3">
                           <span className={`px-2 py-1 rounded-full text-xs font-medium capitalize ${getStatusColor(item.status)}`}>
@@ -244,14 +244,14 @@ const ContentManager = () => {
                           </span>
                           
                           {item.scheduledFor && (
-                            <span className="text-white/50 text-xs">
+                            <span className="text-white/50 dark:text-white/50 light:text-gray-500 text-xs">
                               {new Date(item.scheduledFor).toLocaleDateString()}
                             </span>
                           )}
                         </div>
 
                         {item.status === 'published' && (
-                          <div className="flex items-center gap-4 text-xs text-white/60">
+                          <div className="flex items-center gap-4 text-xs text-white/60 dark:text-white/60 light:text-gray-500">
                             <span>❤️ {item.engagement.likes}</span>
                             <span>💬 {item.engagement.comments}</span>
                             <span>🔄 {item.engagement.shares}</span>
@@ -270,7 +270,7 @@ const ContentManager = () => {
                 animate={{ opacity: 1 }}
                 className="text-center py-12"
               >
-                <p className="text-white/60 mb-4">No content found</p>
+                <p className="text-white/60 dark:text-white/60 light:text-gray-500 mb-4">No content found</p>
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}

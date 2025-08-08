@@ -43,7 +43,7 @@ const RecentActivity = () => {
 
   return (
     <div className="glass rounded-2xl p-6">
-      <h2 className="text-xl font-bold text-white mb-6">Recent Activity</h2>
+      <h2 className="text-xl font-bold text-white dark:text-white light:text-gray-800 mb-6">Recent Activity</h2>
       
       <div className="space-y-4">
         {activities.map((activity, index) => {
@@ -56,12 +56,12 @@ const RecentActivity = () => {
               transition={{ delay: index * 0.1 }}
               className="flex items-center gap-3 p-3 rounded-xl glass-hover"
             >
-              <div className={`w-10 h-10 bg-white/10 rounded-full flex items-center justify-center ${activity.color}`}>
+              <div className={`w-10 h-10 bg-white/10 dark:bg-white/10 light:bg-gray-200/50 rounded-full flex items-center justify-center ${activity.color}`}>
                 <Icon size={16} />
               </div>
               <div className="flex-1">
-                <p className="text-white text-sm font-medium">{activity.message}</p>
-                <p className="text-white/50 text-xs">{activity.time}</p>
+                <p className="text-white dark:text-white light:text-gray-800 text-sm font-medium">{activity.message}</p>
+                <p className="text-white/50 dark:text-white/50 light:text-gray-500 text-xs">{activity.time}</p>
               </div>
             </motion.div>
           )
@@ -71,7 +71,7 @@ const RecentActivity = () => {
       <motion.button
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}
-        className="w-full mt-4 py-2 text-white/70 hover:text-white text-sm font-medium transition-colors duration-300"
+        className="w-full mt-4 py-2 text-white/70 dark:text-white/70 light:text-gray-600 hover:text-white dark:hover:text-white light:hover:text-gray-800 text-sm font-medium transition-colors duration-300"
       >
         View all activity
       </motion.button>

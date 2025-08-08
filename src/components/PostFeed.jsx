@@ -46,8 +46,8 @@ const PostFeed = () => {
         className="flex items-center justify-between"
       >
         <div>
-          <h1 className="text-3xl font-bold text-white mb-2">Social Feed</h1>
-          <p className="text-white/70">Your latest posts across all platforms</p>
+          <h1 className="text-3xl font-bold text-white dark:text-white light:text-gray-800 mb-2">Social Feed</h1>
+          <p className="text-white/70 dark:text-white/70 light:text-gray-600">Your latest posts across all platforms</p>
         </div>
         
         <motion.button
@@ -80,7 +80,7 @@ const PostFeed = () => {
           <motion.div
             animate={{ rotate: 360 }}
             transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-            className="w-8 h-8 border-2 border-white/20 border-t-white rounded-full"
+            className="w-8 h-8 border-2 border-white/20 dark:border-white/20 light:border-gray-300 border-t-white dark:border-t-white light:border-t-gray-600 rounded-full"
           />
         </div>
       )}
@@ -93,7 +93,7 @@ const PostFeed = () => {
           animate={{ opacity: 1 }}
           className="text-center py-8"
         >
-          <p className="text-white/60">You've reached the end of your feed</p>
+          <p className="text-white/60 dark:text-white/60 light:text-gray-500">You've reached the end of your feed</p>
         </motion.div>
       )}
     </div>

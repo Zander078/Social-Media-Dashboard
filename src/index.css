@@ -6,6 +6,10 @@
   body {
     @apply bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 min-h-screen;
   }
+  
+  .light body {
+    @apply bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50;
+  }
 }
 
 @layer components {
@@ -13,8 +17,16 @@
     @apply bg-white/10 backdrop-blur-md border border-white/20 shadow-xl;
   }
   
+  .light .glass {
+    @apply bg-white/60 backdrop-blur-md border border-white/40 shadow-xl;
+  }
+  
   .glass-hover {
     @apply hover:bg-white/20 transition-all duration-300;
+  }
+  
+  .light .glass-hover {
+    @apply hover:bg-white/80 transition-all duration-300;
   }
   
   .gradient-text {

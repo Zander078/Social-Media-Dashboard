@@ -49,8 +49,8 @@ const Dashboard = () => {
         className="flex items-center justify-between"
       >
         <div>
-          <h1 className="text-3xl font-bold text-white mb-2">Welcome back, Alex!</h1>
-          <p className="text-white/70">Here's what's happening with your social media today.</p>
+          <h1 className="text-3xl font-bold text-white dark:text-white light:text-gray-800 mb-2">Welcome back, Alex!</h1>
+          <p className="text-white/70 dark:text-white/70 light:text-gray-600">Here's what's happening with your social media today.</p>
         </div>
         <motion.div
           animate={{ rotate: 360 }}

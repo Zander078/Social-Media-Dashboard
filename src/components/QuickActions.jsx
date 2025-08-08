@@ -14,7 +14,7 @@ const QuickActions = () => {
 
   return (
     <div className="glass rounded-2xl p-6">
-      <h2 className="text-xl font-bold text-white mb-6">Quick Actions</h2>
+      <h2 className="text-xl font-bold text-white dark:text-white light:text-gray-800 mb-6">Quick Actions</h2>
       
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
         {actions.map((action, index) => {
@@ -32,7 +32,7 @@ const QuickActions = () => {
               <div className={`w-12 h-12 bg-gradient-to-r ${action.color} rounded-xl flex items-center justify-center mb-3 mx-auto group-hover:scale-110 transition-transform duration-300`}>
                 <Icon className="text-white" size={20} />
               </div>
-              <p className="text-white/80 text-sm font-medium">{action.label}</p>
+              <p className="text-white/80 dark:text-white/80 light:text-gray-700 text-sm font-medium">{action.label}</p>
             </motion.button>
           )
         })}

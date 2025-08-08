@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { ThemeProvider } from './contexts/ThemeContext'
 import Sidebar from './components/Sidebar'
 import Dashboard from './components/Dashboard'
 import PostFeed from './components/PostFeed'
@@ -14,7 +15,7 @@ const navigationItems = [
   { id: 'content', label: 'Content Manager', icon: Edit3 },
 ]
 
-function App() {
+function AppContent() {
   const [activeTab, setActiveTab] = useState('dashboard')
 
   const renderContent = () => {
@@ -33,7 +34,7 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen flex">
+    <div className="min-h-screen flex bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 dark:from-purple-900 dark:via-blue-900 dark:to-indigo-900 light:from-blue-50 light:via-indigo-50 light:to-purple-50">
       <Sidebar 
         navigationItems={navigationItems}
         activeTab={activeTab}
@@ -55,6 +56,14 @@ function App() {
         </AnimatePresence>
       </main>
     </div>
+  )
+}
+
+function App() {
+  return (
+    <ThemeProvider>
+      <AppContent />
+    </ThemeProvider>
   )
 }
 

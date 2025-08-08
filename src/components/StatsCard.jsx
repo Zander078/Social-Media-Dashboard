@@ -21,8 +21,8 @@ const StatsCard = ({ title, value, change, trend, icon: Icon, color }) => {
       </div>
       
       <div>
-        <h3 className="text-2xl font-bold text-white mb-1">{value}</h3>
-        <p className="text-white/60 text-sm">{title}</p>
+        <h3 className="text-2xl font-bold text-white dark:text-white light:text-gray-800 mb-1">{value}</h3>
+        <p className="text-white/60 dark:text-white/60 light:text-gray-600 text-sm">{title}</p>
       </div>
     </motion.div>
   )

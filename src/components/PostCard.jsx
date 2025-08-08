@@ -52,8 +52,8 @@ const PostCard = ({ post }) => {
               className="w-10 h-10 rounded-full object-cover"
             />
             <div>
-              <p className="text-white font-medium text-sm">{post.author.name}</p>
-              <p className="text-white/60 text-xs">
+              <p className="text-white dark:text-white light:text-gray-800 font-medium text-sm">{post.author.name}</p>
+              <p className="text-white/60 dark:text-white/60 light:text-gray-500 text-xs">
                 {formatDistanceToNow(new Date(post.createdAt), { addSuffix: true })}
               </p>
             </div>
@@ -62,13 +62,13 @@ const PostCard = ({ post }) => {
           <motion.button
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
-            className="text-white/60 hover:text-white transition-colors duration-300"
+            className="text-white/60 dark:text-white/60 light:text-gray-500 hover:text-white dark:hover:text-white light:hover:text-gray-800 transition-colors duration-300"
           >
             <MoreHorizontal size={20} />
           </motion.button>
         </div>
 
-        <p className="text-white/90 text-sm mb-4 leading-relaxed">{post.content}</p>
+        <p className="text-white/90 dark:text-white/90 light:text-gray-700 text-sm mb-4 leading-relaxed">{post.content}</p>
 
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-4">
@@ -77,7 +77,7 @@ const PostCard = ({ post }) => {
               whileTap={{ scale: 0.9 }}
               onClick={handleLike}
               className={`flex items-center gap-2 transition-colors duration-300 ${
-                liked ? 'text-pink-400' : 'text-white/60 hover:text-pink-400'
+                liked ? 'text-pink-400' : 'text-white/60 dark:text-white/60 light:text-gray-500 hover:text-pink-400'
               }`}
             >
               <Heart size={18} fill={liked ? 'currentColor' : 'none'} />
@@ -87,7 +87,7 @@ const PostCard = ({ post }) => {
             <motion.button
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
-              className="flex items-center gap-2 text-white/60 hover:text-blue-400 transition-colors duration-300"
+              className="flex items-center gap-2 text-white/60 dark:text-white/60 light:text-gray-500 hover:text-blue-400 transition-colors duration-300"
             >
               <MessageCircle size={18} />
               <span className="text-sm font-medium">{post.comments}</span>
@@ -96,14 +96,14 @@ const PostCard = ({ post }) => {
             <motion.button
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
-              className="flex items-center gap-2 text-white/60 hover:text-green-400 transition-colors duration-300"
+              className="flex items-center gap-2 text-white/60 dark:text-white/60 light:text-gray-500 hover:text-green-400 transition-colors duration-300"
             >
               <Share2 size={18} />
               <span className="text-sm font-medium">{post.shares}</span>
             </motion.button>
           </div>
 
-          <div className="flex items-center gap-1 text-white/50 text-xs">
+          <div className="flex items-center gap-1 text-white/50 dark:text-white/50 light:text-gray-400 text-xs">
             <Eye size={14} />
             <span>{post.views}</span>
           </div>
